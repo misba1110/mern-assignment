@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>CALCULATOR</title>
+        <script src="main.js"></script>
+    </head>
+
+    <body>
+        <fieldset>
+            <legend>TOOLBAR</legend>
+            <div>
+                NUMBER: 
+                <input type="text" id="number"/>
+                <input type="button" value="Add to List" onclick="addToList()"/>
+                <input type="button" value="Clear Display" onclick="clearDisplay()"/>
+                <input type="button" value="Reset Calculator" onclick="resetCalculator()"/>
+
+                <br/>
+                <input type="button" value="Sum" onclick="sum()"/>
+                <input type="button" value="Average" onclick="average()"/>
+                <input type="button" value="Find Min" onclick="minimum()"/>
+            </div>
+        </fieldset>
+
+        <hr/>
+
+        <fieldset>
+            <legend>CONSOLE</legend>
+            <div id="console"></div>
+        </fieldset>
+
+        <fieldset>
+            <legend>NUMBER LIST</legend>
+            <ul id="numberList"></ul>
+            <input type="button" value="Refresh List" onclick="refreshList()"/>
+        </fieldset>
+    </body>
+</html>
