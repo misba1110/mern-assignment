@@ -1,12 +1,9 @@
 import React,{useState} from 'react'
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import AppHeader from './app-header';
 import AppFooter from './app-footer';
 import AppHome from './app-home';
 import BookDetails from './book-details';
 import BookList from './book-list';
-import BookAdd from './book-add';
-import If from './if';
 
 const allBooks = [
     {
@@ -137,21 +134,21 @@ const Component=({title})=>{
 
     return <div className='main'>
             <AppHeader title={title} />
+            <div className='container'>
+               
 
-            <BrowserRouter>
-                <div className='container'>
-                    <Switch>
-                        <Route path="/" exact="true" component={AppHome} />
-                        <Route path="/book/list">
-                            <BookList books={books} />
-                        </Route>
-                        <Route path="/book/add" component={BookAdd} />
-                        <Route path="/book/details/:isbn" >
-                            <BookDetails book={selectedBook} />
-                        </Route>
-                    </Switch>
-                </div>            
-            </BrowserRouter>           
+                {
+                    selectedBook?( 
+                        <BookDetails book={selectedBook} onExit={()=>selectBook(null)}/>
+                    ) :(
+                        <BookList books={books} 
+                          onSelectBook={handleSelectBook} 
+                          onDeleteBook={handleDeleteBook}
+                          />             
+                    )
+                }
+                
+            </div>
 
             <AppFooter copyright="conceptarchitect.in" url="http://conceptarchitect.in" />
         </div>;
